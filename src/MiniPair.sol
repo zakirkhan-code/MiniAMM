@@ -130,6 +130,15 @@ contract MiniPair {
         emit Swap(msg.sender, amountIn, _tokenIn, amountOut, address(tokenOut));
     }
 
+    function transfer(address to, uint256 amount) external returns (bool) {
+        require(to != address(0), "MiniPair: TRANSFER_TO_ZERO");
+        require(balanceOf[msg.sender] >= amount, "MiniPair: INSUFFICIENT_LP");
+
+        balanceOf[msg.sender] -= amount;
+        balanceOf[to] += amount;
+        return true;
+    }
+
     // ========== VIEW FUNCTIONS ==========
 
     function getPriceA() external view returns (uint256) {
