@@ -1,0 +1,29 @@
+notepad .gitignore
+```
+
+Usme ye likho:
+```
+# Dependencies
+node_modules/
+lib/
+
+# Build
+out/
+cache/
+artifacts/
+build/
+
+# Environment
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Hardhat
+typechain/
+typechain-types/
+
+# Test artifacts
+test-hardhat/
