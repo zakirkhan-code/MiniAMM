@@ -52,7 +52,6 @@ contract MiniRouter {
             liquidity = pair.addLiquidity(amountB, amountA);
         }
 
-        // Transfer LP tokens to recipient
         pair.transfer(to, liquidity);
     }
 

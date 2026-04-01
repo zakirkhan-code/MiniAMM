@@ -1,0 +1,469 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #21262d;
+}
+
+.header-left {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo-sub {
+  font-size: 12px;
+  color: #8b949e;
+}
+
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.network-badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.network-badge.correct {
+  background: #0d1f12;
+  color: #3fb950;
+  border: 1px solid #238636;
+}
+
+.network-badge.wrong {
+  background: #2d1214;
+  color: #f85149;
+  border: 1px solid #da3633;
+}
+
+.address-badge {
+  padding: 6px 12px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #a855f7;
+  text-decoration: none;
+  font-family: monospace;
+}
+
+.address-badge:hover {
+  border-color: #a855f7;
+}
+
+.connect-btn {
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.connect-btn:hover {
+  opacity: 0.9;
+}
+
+/* Main */
+.main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 16px;
+}
+
+.wrong-network {
+  text-align: center;
+  padding: 40px;
+}
+
+.wrong-network h2 {
+  color: #f85149;
+  margin-bottom: 8px;
+}
+
+/* Swap Card */
+.swap-card {
+  width: 100%;
+  max-width: 440px;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.swap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.swap-header h2 {
+  font-size: 18px;
+}
+
+.slippage-setting {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.slippage-setting input {
+  width: 50px;
+  padding: 4px 6px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #e6edf3;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Token input */
+.token-input-box {
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 12px;
+  padding: 12px;
+  transition: border-color 0.2s;
+}
+
+.token-input-box:focus-within {
+  border-color: #a855f7;
+}
+
+.token-input-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.label {
+  font-size: 13px;
+  color: #8b949e;
+}
+
+.balance {
+  font-size: 13px;
+  color: #8b949e;
+  cursor: pointer;
+}
+
+.balance:hover {
+  color: #a855f7;
+}
+
+.token-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.amount-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e6edf3;
+  font-size: 24px;
+  font-weight: 500;
+  width: 0;
+}
+
+.amount-input::placeholder {
+  color: #484f58;
+}
+
+.amount-input::-webkit-outer-spin-button,
+.amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.token-select {
+  padding: 8px 12px;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  color: #e6edf3;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.token-select:hover {
+  border-color: #a855f7;
+}
+
+/* Flip */
+.flip-container {
+  display: flex;
+  justify-content: center;
+  margin: -6px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.flip-btn {
+  width: 36px;
+  height: 36px;
+  background: #21262d;
+  border: 3px solid #161b22;
+  border-radius: 10px;
+  color: #8b949e;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.flip-btn:hover {
+  color: #a855f7;
+  background: #30363d;
+}
+
+/* Swap details */
+.swap-details {
+  margin-top: 12px;
+  padding: 12px;
+  background: #0d1117;
+  border-radius: 10px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 13px;
+  color: #8b949e;
+}
+
+/* Messages */
+.error-msg {
+  margin-top: 8px;
+  padding: 10px;
+  background: #2d1214;
+  border: 1px solid #da3633;
+  border-radius: 10px;
+  color: #f85149;
+  font-size: 13px;
+  text-align: center;
+}
+
+.success-msg {
+  margin-top: 8px;
+  padding: 10px;
+  background: #0d1f12;
+  border: 1px solid #238636;
+  border-radius: 10px;
+  color: #3fb950;
+  font-size: 13px;
+  text-align: center;
+}
+
+.success-msg a {
+  color: #a855f7;
+  text-decoration: underline;
+}
+
+/* Swap button */
+.swap-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.swap-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.swap-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.footer {
+  padding: 16px;
+  text-align: center;
+  color: #8b949e;
+  font-size: 13px;
+  border-top: 1px solid #21262d;
+}
+
+.footer a {
+  color: #a855f7;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Navigation tabs */
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px;
+  background: #0d1117;
+}
+
+.tab {
+  padding: 8px 24px;
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #e6edf3;
+  background: #161b22;
+}
+
+.tab.active {
+  color: #e6edf3;
+  background: #21262d;
+}
+
+/* Liquidity mode toggle */
+.mode-toggle {
+  display: flex;
+  background: #0d1117;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 12px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: #8b949e;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-btn.active {
+  background: #21262d;
+  color: #e6edf3;
+}
+
+.mode-btn:hover:not(.active) {
+  color: #e6edf3;
+}
+
+/* Plus icon between inputs */
+.plus-container {
+  display: flex;
+  justify-content: center;
+  margin: -4px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.plus-icon {
+  width: 36px;
+  height: 36px;
+  background: #21262d;
+  border: 3px solid #161b22;
+  border-radius: 10px;
+  color: #8b949e;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* LP token badge */
+.token-badge {
+  padding: 8px 16px;
+  background: #21262d;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  color: #a855f7;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Quick amount buttons */
+.quick-amounts {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.quick-btn {
+  flex: 1;
+  padding: 6px;
+  background: #0d1117;
+  border: 1px solid #21262d;
+  border-radius: 8px;
+  color: #8b949e;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quick-btn:hover {
+  border-color: #a855f7;
+  color: #a855f7;
+}
